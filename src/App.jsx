@@ -1,14 +1,23 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Form from "./Forms/Form";
+import FromProps from "./Forms/FromProps";
+
+const Titulo = ({ cor, texto, children }) => {
+  if (children == null) {
+    return <h1 style={{ color: cor }}>{texto}</h1>;
+  } else {
+    return <h1 style={{ color: cor }}>{children}</h1>;
+  }
+};
 
 const App = () => {
   return (
     <>
-      <Header />
-      <Form />
-      <Footer />
+      <Titulo texto="Meu titulo" cor="red" />
+      <Titulo texto="Meu titulo" cor="blue" />
+      <Titulo texto="Meu titulo" cor="green" />
+      <Titulo cor="yellow">Children</Titulo>
+      <Titulo>Children</Titulo>
+      <FromProps/>
     </>
   );
 };
