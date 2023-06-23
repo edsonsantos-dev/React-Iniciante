@@ -1,5 +1,7 @@
 import React from "react";
-import FromProps from "./Forms/FromProps";
+import Header from "./Header";
+import Home from "./Home";
+import Produtos from "./Produtos";
 
 const Titulo = ({ cor, texto, children }) => {
   if (children == null) {
@@ -10,14 +12,18 @@ const Titulo = ({ cor, texto, children }) => {
 };
 
 const App = () => {
+  let Pagina = Home;
+
+  const { pathname } = window.location;
+
+  if (pathname === "/produtos") {
+    Pagina = Produtos;
+  }
+
   return (
     <>
-      <Titulo texto="Meu titulo" cor="red" />
-      <Titulo texto="Meu titulo" cor="blue" />
-      <Titulo texto="Meu titulo" cor="green" />
-      <Titulo cor="yellow">Children</Titulo>
-      <Titulo>Children</Titulo>
-      <FromProps/>
+      <Header />
+      <Pagina />
     </>
   );
 };
